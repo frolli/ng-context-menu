@@ -71,7 +71,7 @@
               opened = false;
             }
 
-            $element.bind('contextmenu', function(event) {
+            $element.bind('contextmenu mousedown', function(event) {
               if (!$scope.disabled()) {
                 if (ContextMenuService.menuElement !== null) {
                   close(ContextMenuService.menuElement);
@@ -105,8 +105,7 @@
             function handleClickEvent(event) {
               if (!$scope.disabled() &&
                 opened &&
-                (event.button !== 2 ||
-                  event.target !== ContextMenuService.element)) {
+                (event.target !== ContextMenuService.element)) {
                 $scope.$apply(function() {
                   close(ContextMenuService.menuElement);
                 });
